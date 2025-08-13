@@ -5,25 +5,7 @@ import { Film, Search, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-interface Movie {
-  id: number
-  title: string
-  year: number
-  genre: string
-  language: string
-  quality: string
-  resolution: string
-  size: string
-  poster: string
-  category: string
-  plot?: string
-  director?: string
-  cast?: string
-  duration?: string
-  screenshots?: string[]
-  download_links?: any[]
-  created_at?: string
-}
+import { Movie } from '@/types/movie'
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')

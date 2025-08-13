@@ -7,40 +7,7 @@ import { Input } from '@/components/ui/input'
 import { useToast } from '@/hooks/use-toast'
 import { apiRequest, queryClient } from '@/lib/queryClient'
 
-interface Movie {
-  id: number
-  title: string
-  year: number
-  genre: string
-  language: string
-  quality: string
-  resolution: string
-  size: string
-  poster: string
-  category: string
-  plot?: string
-  director?: string
-  cast?: string
-  duration?: string
-  screenshots?: string[]
-  download_links?: any[]
-}
-
-interface MovieFormData {
-  title: string
-  year: number
-  genre: string
-  language: string
-  quality: string
-  resolution: string
-  size: string
-  poster: string
-  category: string
-  plot?: string
-  director?: string
-  cast?: string
-  duration?: string
-}
+import { Movie, MovieFormData } from '@/types/movie'
 
 export default function Admin() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

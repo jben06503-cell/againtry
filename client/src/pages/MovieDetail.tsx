@@ -2,31 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import { useParams, useLocation } from 'wouter'
 import { ArrowLeft, Calendar, Clock, Star, Download, Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-
-interface Movie {
-  id: number
-  title: string
-  year: number
-  genre: string
-  language: string
-  quality: string
-  resolution: string
-  size: string
-  poster: string
-  category: string
-  plot?: string
-  director?: string
-  cast?: string
-  duration?: string
-  screenshots?: string[]
-  download_links?: any[]
-}
+import { Movie } from '@/types/movie'
 
 export default function MovieDetail() {
   const { id } = useParams()
   const [, setLocation] = useLocation()
 
-  const { data: movie, isLoading, error } = useQuery({
+  const { data: movie, isLoading, error } = useQuery<Movie>({
     queryKey: ['/api/movies', id],
     queryFn: async () => {
       const response = await fetch(`/api/movies/${id}`)
@@ -173,7 +155,7 @@ export default function MovieDetail() {
                 <div>
                   <h2 className="text-xl font-semibold mb-4">Screenshots</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {movie.screenshots.map((screenshot, index) => (
+                    {movie.screenshots.map((screenshot: string, index: number) => (
                       <img
                         key={index}
                         src={screenshot}
