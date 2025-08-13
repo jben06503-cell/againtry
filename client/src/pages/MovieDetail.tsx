@@ -57,6 +57,23 @@ export default function MovieDetail() {
     )
   }
 
+  if (!movie) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white">
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-center">
+            <h2 className="text-2xl font-bold text-white mb-4">Movie Not Found</h2>
+            <p className="text-gray-400 mb-6">The movie you're looking for doesn't exist.</p>
+            <Button onClick={handleBackClick} className="bg-red-600 hover:bg-red-700">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Home
+            </Button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-8">
