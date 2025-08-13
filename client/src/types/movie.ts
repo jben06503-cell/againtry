@@ -14,7 +14,8 @@ export interface Movie {
   cast?: string
   duration?: string
   screenshots?: string[]
-  download_links?: any[]
+  download_links?: DownloadLink[]
+  created_at?: string
 }
 
 export interface MovieFormData {
@@ -31,6 +32,17 @@ export interface MovieFormData {
   director?: string
   cast?: string
   duration?: string
-  screenshots?: string[]
-  download_links?: any[]
+}
+
+export interface DownloadLink {
+  quality: string
+  size: string
+  url: string
+}
+
+export interface AdminUser {
+  id: number
+  username: string
+  password: string
+  created_at?: string
 }
